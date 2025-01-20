@@ -1,0 +1,156 @@
+[
+    {
+        "id": 1,
+        "content": "This is the first comment.",
+        "votes": 10,
+        "timestamp": "2025-01-18T10:00:00Z",
+        "replies": [
+            {
+                "id": 2,
+                "content": "This is a reply to the first comment.",
+                "votes": 5,
+                "timestamp": "2025-01-18T10:10:00Z",
+                "replies": []
+            },
+            {
+                "id": 3,
+                "content": "Another reply to the first comment.",
+                "votes": 8,
+                "timestamp": "2025-01-18T10:20:00Z",
+                "replies": []
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "content": "This is the second comment.",
+        "votes": 15,
+        "timestamp": "2025-01-18T11:00:00Z",
+        "replies": [
+            {
+                "id": 5,
+                "content": "Reply to the second comment.",
+                "votes": 7,
+                "timestamp": "2025-01-18T11:15:00Z",
+                "replies": [
+                    {
+                        "id": 6,
+                        "content": "Nested reply to the reply.",
+                        "votes": 3,
+                        "timestamp": "2025-01-18T11:20:00Z",
+                        "replies": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "content": "This is the third comment.",
+        "votes": 20,
+        "timestamp": "2025-01-18T12:00:00Z",
+        "replies": []
+    },
+    {
+        "id": 8,
+        "content": "This is the fourth comment.",
+        "votes": 12,
+        "timestamp": "2025-01-18T12:30:00Z",
+        "replies": []
+    },
+    {
+        "id": 9,
+        "content": "This is the fifth comment.",
+        "votes": 18,
+        "timestamp": "2025-01-18T13:00:00Z",
+        "replies": [
+            {
+                "id": 10,
+                "content": "Reply to the fifth comment.",
+                "votes": 6,
+                "timestamp": "2025-01-18T13:10:00Z",
+                "replies": []
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "content": "This is the sixth comment.",
+        "votes": 9,
+        "timestamp": "2025-01-18T13:30:00Z",
+        "replies": []
+    },
+    {
+        "id": 12,
+        "content": "This is the seventh comment.",
+        "votes": 13,
+        "timestamp": "2025-01-18T14:00:00Z",
+        "replies": [
+            {
+                "id": 13,
+                "content": "Reply to the seventh comment.",
+                "votes": 4,
+                "timestamp": "2025-01-18T14:10:00Z",
+                "replies": []
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "content": "This is the eighth comment.",
+        "votes": 11,
+        "timestamp": "2025-01-18T14:30:00Z",
+        "replies": []
+    },
+    {
+        "id": 15,
+        "content": "This is the ninth comment.",
+        "votes": 7,
+        "timestamp": "2025-01-18T15:00:00Z",
+        "replies": [
+            {
+                "id": 16,
+                "content": "Reply to the ninth comment.",
+                "votes": 3,
+                "timestamp": "2025-01-18T15:15:00Z",
+                "replies": []
+            },
+            {
+                "id": 17,
+                "content": "Another reply to the ninth comment.",
+                "votes": 5,
+                "timestamp": "2025-01-18T15:20:00Z",
+                "replies": []
+            }
+        ]
+    },
+    {
+        "id": 18,
+        "content": "This is the tenth comment.",
+        "votes": 14,
+        "timestamp": "2025-01-18T15:30:00Z",
+        "replies": []
+    },
+    {
+        "id": 19,
+        "content": "This is the eleventh comment.",
+        "votes": 8,
+        "timestamp": "2025-01-18T16:00:00Z",
+        "replies": []
+    },
+    {
+        "id": 20,
+        "content": "This is the twelfth comment.",
+        "votes": 17,
+        "timestamp": "2025-01-18T16:30:00Z",
+        "replies": [
+            {
+                "id": 21,
+                "content": "Reply to the twelfth comment.",
+                "votes": 9,
+                "timestamp": "2025-01-18T16:45:00Z",
+                "replies": []
+            }
+        ]
+    }
+]
