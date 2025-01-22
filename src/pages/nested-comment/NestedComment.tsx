@@ -2,18 +2,21 @@ import { useState } from "react";
 import useCommentTree from "./hooks/useCommentTree";
 import { Comment as CommentInterface } from "./types/Comment";
 import Comment from "./components/Comment";
-import { Send } from "lucide-react";
-
+import { Send, Filter, ThumbsUp, ArrowUpCircle, ArrowDownCircle } from "lucide-react";
 
 function NestedComments({ comments }: { comments: CommentInterface[] }) {
-    const { comments: commentsData,
+    const {
+        comments: commentsData,
         insertComment,
         editComment,
         deleteComment,
         upVote,
-        downVote
+        downVote,
+        sortComments
     } = useCommentTree(comments);
+
     const [comment, setComment] = useState<string>("");
+    const [isFilterOpen, setIsFilterOpen] = useState(false);
 
     const handleReply = (commentId: number | null, content: string) => {
         if (content.trim().length > 0) {
@@ -23,15 +26,18 @@ function NestedComments({ comments }: { comments: CommentInterface[] }) {
             }
         }
     };
+
     const handleEditReply = (commentId: number, content: string) => {
         if (content.trim()) {
             editComment(commentId, content);
+        } else {
+            deleteComment(commentId);
         }
-        else {
-            // this will delete without confirmation so don't use it    
-            deleteComment(commentId)
-        }
-    }
+    };
+
+    const toggleFilter = () => {
+        setIsFilterOpen(!isFilterOpen);
+    };
 
     return (
         <div className="p-4">
@@ -57,7 +63,43 @@ function NestedComments({ comments }: { comments: CommentInterface[] }) {
             </div>
 
             {/* Comments Section */}
-            <div className="comments-list mt-6 space-y-4 py-4 px-2  border border-solid rounded border-gray-800">
+            <div className="comments-list mt-6 space-y-4 py-4 px-2 border border-solid rounded border-gray-800 bg-white dark:bg-neutral-800">
+                {/* Filter Header */}
+                <div className="flex justify-between items-center px-4 py-2 bg-gray-100 dark:bg-neutral-700 rounded-md shadow-sm">
+                    <span className="text-lg font-semibold text-gray-800 dark:text-gray-100">
+                        Comments
+                    </span>
+                    <div className="relative">
+                        {/* Filter Button */}
+                        <button
+                            className="flex items-center gap-2 bg-violet-600 text-white px-3 py-2 text-sm rounded-md hover:bg-violet-700 transition-all"
+                            onClick={toggleFilter}
+                        >
+                            <Filter size={18} />
+                            <span>Filter</span>
+                        </button>
+
+                        {/* Dropdown Menu */}
+                        {isFilterOpen && (
+                            <div className="z-10 absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg dark:bg-neutral-700 dark:border-neutral-500">
+                                <button onClick={() => sortComments("newest")} className="flex items-center w-full p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 text-gray-800 dark:text-gray-100">
+                                    <ArrowDownCircle size={18} className="mr-2" />
+                                    Newest
+                                </button>
+                                <button onClick={() => sortComments("oldest")} className="flex items-center w-full p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 text-gray-800 dark:text-gray-100">
+                                    <ArrowUpCircle size={18} className="mr-2" />
+                                    Oldest
+                                </button>
+                                <button onClick={() => sortComments("most-votes")} className="flex items-center w-full p-2 hover:bg-gray-100 dark:hover:bg-neutral-600 text-gray-800 dark:text-gray-100">
+                                    <ThumbsUp size={18} className="mr-2" />
+                                    By Most Votes
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                </div>
+
+                {/* Nested Comments */}
                 {commentsData.map((comment) => (
                     <Comment
                         key={comment.id}

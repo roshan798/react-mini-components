@@ -93,6 +93,33 @@ function useCommentTree(initialComments: Comment[]) {
     const deleteComment = (commentId: number) => {
         setComments(prevComments => deleteNode(prevComments, commentId));
     }
+
+
+
+    type SortingType = "oldest" | "newest" | "most-votes"
+    const sortComments = (sortBy: SortingType) => {
+        console.log(sortBy);
+
+        setComments(prevComments => {
+            // Create a new array and sort it
+            const sortedComments = [...prevComments].sort((a, b) => {
+                switch (sortBy) {
+                    case "oldest":
+                        return new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime();
+                        break;
+                    case "newest":
+                        return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime();
+                        break;
+                    case "most-votes":
+                        return b.votes - a.votes;
+                        break;
+                    }
+                return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime();
+            });
+            return sortedComments;
+        });
+    };
+
     return {
         comments,
         insertComment,
@@ -101,7 +128,8 @@ function useCommentTree(initialComments: Comment[]) {
         upVote: (commentId: number) => {
             vote(commentId, "upvote")
         },
-        downVote: (commentId: number) => { vote(commentId, "downvote") }
+        downVote: (commentId: number) => { vote(commentId, "downvote") },
+        sortComments
     }
 }
 
