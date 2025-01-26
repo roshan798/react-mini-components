@@ -1,10 +1,9 @@
 import { useState } from "react";
 import useCommentTree from "./hooks/useCommentTree";
-import { Comment as CommentInterface } from "./types/Comment";
 import Comment from "./components/Comment";
 import { Send, Filter, ThumbsUp, ArrowUpCircle, ArrowDownCircle } from "lucide-react";
-
-function NestedComments({ comments }: { comments: CommentInterface[] }) {
+import comments from "./data/nestedCommentsData.json"
+function NestedComments() {
     const {
         comments: commentsData,
         insertComment,

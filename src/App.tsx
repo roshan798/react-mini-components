@@ -1,16 +1,19 @@
 import { Route, Routes } from "react-router-dom"
 import Home from "./pages/Home"
-import NestedComments from "./pages/nested-comment/NestedComment"
-import commentsData from "./pages/nested-comment/data/nestedCommentsData.json"
 import Header from "./component/Header"
+import pagesData from "./pages/routingData"
 function App() {
 
   return (
     <>
-      <Header />
+      <Header componentCount={pagesData.length } />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/nested-commments" element={<NestedComments comments={commentsData} />} />
+        {
+          pagesData.map((page, index) => {
+            return <Route key={index} path={page.path} element={<page.component />} />
+          })
+        }
       </Routes>
     </>
   )

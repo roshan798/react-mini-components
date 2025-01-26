@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import pagesData from "./routingData";
 
 function Home() {
     return (
@@ -11,26 +12,15 @@ function Home() {
                     Explore different components and features by clicking on the buttons below.
                 </p>
                 <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-                    {/* Add buttons for each page here */}
-                    <Link
-                        to="/nested-commments"
-                        className="group block bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold text-center rounded-lg shadow-md p-4 hover:scale-105 hover:shadow-lg transition-transform duration-300"
-                    >
-                        Nested Comments Component
-                    </Link>
-                    {/* <Link
-                        to="/component2"
-                        className="group block bg-gradient-to-r from-green-400 to-teal-500 text-white font-semibold text-center rounded-lg shadow-md p-4 hover:scale-105 hover:shadow-lg transition-transform duration-300"
-                    >
-                        Component 2
-                    </Link>
-                    <Link
-                        to="/component3"
-                        className="group block bg-gradient-to-r from-pink-400 to-red-500 text-white font-semibold text-center rounded-lg shadow-md p-4 hover:scale-105 hover:shadow-lg transition-transform duration-300"
-                    >
-                        Component 3
-                    </Link> */}
-                    {/* Add more links as needed */}
+                    {pagesData.map((page, index) => {
+                        return <Link
+                            key={index}
+                            to={page.path}
+                            className="group block bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold text-center rounded-lg shadow-md p-4 hover:scale-105 hover:shadow-lg transition-transform duration-300"
+                        >
+                            {page.name}
+                        </Link>
+                    })}
                 </div>
             </div>
         </div>
