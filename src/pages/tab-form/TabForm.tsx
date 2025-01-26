@@ -9,7 +9,7 @@ import { FormsData, FormsError } from "./types";
 const initialData: FormsData = {
   profile: { name: "", email: "" },
   intrests: [],
-  settings: { theme: "dark" },
+  settings: { theme: "light" },
 };
 
 function TabForm() {
@@ -48,7 +48,12 @@ function TabForm() {
   };
 
   const handleSubmit = () => {
+    if (validate()) return;
+    alert("Form submitted successfully");
     console.log(formsData);
+    setCurrentTab(0)
+    setFormsData(initialData)
+    setFormsError({})
   };
 
   const nextTab = () => {
@@ -57,7 +62,7 @@ function TabForm() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+    <div className="min-h-screen flex items-center justify-center ">
       <div className="w-full max-w-lg p-6 bg-white rounded-md shadow-lg">
         <div className="flex gap-2 mb-6">
           {tabs.map((tab, index) => (
