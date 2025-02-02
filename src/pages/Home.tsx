@@ -16,7 +16,7 @@ function Home() {
                         return <Link
                             key={index}
                             to={page.path}
-                            className="group block bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold text-center rounded-lg shadow-md p-4 hover:scale-105 hover:shadow-lg transition-transform duration-300"
+                            className="group block bg-gradient-to-r from-blue-500 to-purple-500 hover:bg-gradient-to-l text-white font-semibold text-center rounded-lg shadow-md p-4 hover:scale-105 hover:shadow-lg transition-transform duration-300"
                         >
                             {page.name}
                         </Link>
