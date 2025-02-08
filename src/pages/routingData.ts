@@ -1,6 +1,7 @@
 import NestedComments from "./nested-comment/NestedComment"
 import TabForm from "./tab-form/TabForm"
 import FrontendPagination from "./frontend-pagination/index"
+import DraggableList from "./draggable-list"
 export type PagesData = {
     path: string
     name: string
@@ -22,6 +23,11 @@ const pagesData: PagesData[] = [
         path: "/frontend-pagination",
         name: "Frontend Pagination",
         component: FrontendPagination
-    }
+    },
+    {
+        path: "/draggable-list",
+        name: "Draggable List",
+        component: DraggableList
+    },
 ]
 export default pagesData; 
