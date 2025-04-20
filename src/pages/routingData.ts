@@ -2,6 +2,7 @@ import NestedComments from "./nested-comment/NestedComment"
 import TabForm from "./tab-form/TabForm"
 import FrontendPagination from "./frontend-pagination/index"
 import DraggableList from "./draggable-list"
+import NestedCheckbox from "./nested-checkbox"
 export type PagesData = {
     path: string
     name: string
@@ -29,5 +30,10 @@ const pagesData: PagesData[] = [
         name: "Draggable List",
         component: DraggableList
     },
+    {
+        path: "/nested-checkbox",
+        name: "Nested Checkbox",
+        component: NestedCheckbox
+    }
 ]
 export default pagesData; 
